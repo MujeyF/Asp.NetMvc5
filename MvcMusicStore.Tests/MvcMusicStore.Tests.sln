@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMusicStore.Tests", "MvcMusicStore.Tests.csproj", "{C987A90C-7C4B-4E51-AFA3-D487C72CC828}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C987A90C-7C4B-4E51-AFA3-D487C72CC828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C987A90C-7C4B-4E51-AFA3-D487C72CC828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C987A90C-7C4B-4E51-AFA3-D487C72CC828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C987A90C-7C4B-4E51-AFA3-D487C72CC828}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B730639-7FAA-4D59-A13A-91D259C7DA91}
+	EndGlobalSection
+EndGlobal
