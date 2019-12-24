@@ -1,0 +1,28 @@
+﻿@using WebApplication.Test.ViewModels
+@model EmployeeListViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employees</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Salary</th>
+        </tr>
+        @foreach (EmployeeViewModel employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.FullName</td>
+                <td style=" background-color: @employee.SalaryColor">@employee.Salary</td>
+            </tr>
+        }
+    </table>
+
+    </body>
+</html>

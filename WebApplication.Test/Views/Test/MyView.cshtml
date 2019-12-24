@@ -1,0 +1,40 @@
+﻿@*@model WebApplication.Test.Models.Employee*@
+@using WebApplication.Test.Models
+@model Employee
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <div>
+        @*@{
+            WebApplication.Test.Models.Employee employee = (WebApplication.Test.Models.Employee)ViewData["Employee"];
+        }*@
+        @*@{ 
+            WebApplication.Test.Models.Employee employee = (WebApplication.Test.Models.Employee)ViewBag.Employee;
+        }*@
+        <b>Employee Details</b><br />
+        Employee Name:@Model.FirstName @Model.LastName <br />
+        @if (Model.Salary > 15000)
+        {
+            <span style="background-color: yellow;">
+                Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        else
+        {
+            <span style="background-color: gray;">
+                Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        <br />  
+        Welcome to Mvc5 step by step learning.
+    </div>
+
+</body>
+</html>
