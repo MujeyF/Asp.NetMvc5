@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MvcMusicStore.Tests.Controllers
@@ -12,14 +13,17 @@ namespace MvcMusicStore.Tests.Controllers
         {
             return "Hello from store.Index()";
         }
-        public string Browse()
+        public string Browse(string genre)
         {
-            return "Hello from store.Browse()";
+            string message =
+                HttpUtility.HtmlEncode("Store.Browse, Genre= " + genre);
+            return message;
 
         }
-        public string Detail()
+        public string Detail(int id)
         {
-            return "Hello from store.Detail()";
+            string message = "Store.Detail, Id = " + id;
+            return message;
 
         }
     }
