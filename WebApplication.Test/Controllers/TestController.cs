@@ -15,6 +15,11 @@ namespace WebApplication.Test.Controllers
     }
     public class TestController : Controller
     {
+        private IEmployeeRepository _employeeRepository;
+        public TestController(IEmployeeRepository employeeRepository)
+        {
+            _employeeRepository = employeeRepository;
+        }
         public string GetString()
         {
             return "Hello MVC From Test.GetStringAction ==";
@@ -36,11 +41,24 @@ namespace WebApplication.Test.Controllers
             // ViewBag 是 ViewData 的一种语法糖
             //ViewData["Employee"] = employee;
             //ViewBag.Employee = employee;
-            return View("MyView",employee);
+            return View("MyView", employee);
         }
         public IActionResult GetEmployee()
         {
+            Employee emp = new Employee();
+            var employees = new EmployeeViewModel();
+            employees.FullName = emp.FirstName + " " + emp.LastName;
+            employees.Salary = emp.Salary.ToString("C");
+            employees.SalaryColor = "gray";
+            if (emp.Salary>15000)
+            {
+                employees.SalaryColor = "yellow";
+            }
 
+            var employeeList = new EmployeeListViewModel();
+            employeeList.Employees.Add(employees);
+            
+            return View(employeeList);
         }
 
         //public IActionResult Employees()
