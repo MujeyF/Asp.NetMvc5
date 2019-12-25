@@ -9,6 +9,6 @@ namespace WebApplication.Test.DataAccessLayor
 {
     public class SalesERPDAL : DbContext
     {
-
+        protected override 
     }
 }
