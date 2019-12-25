@@ -5,30 +5,23 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Test.Models
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
-        public List<Employee> GetEmployees()
+        private readonly AppDbContext _context;
+
+        public EmployeeRepository(AppDbContext appDbContext)
         {
-            List<Employee> employees = new List<Employee>();
-            Employee emp = new Employee();
-            emp.FirstName = "Fohnson";
-            emp.LastName = "Fernands";
-            emp.Salary = 14000;
-            employees.Add(emp);
-            
-            emp = new Employee();
-            emp.FirstName = "Michel";
-            emp.LastName = "Victol";
-            emp.Salary = 37000;
-            employees.Add(emp);
+            _context = appDbContext;
+        }
 
-            emp = new Employee();
-            emp.FirstName = "robert";
-            emp.LastName = "pattinson";
-            emp.Salary = 24000;
-            employees.Add(emp);
+        public Employee GetEmployeeById(int id)
+        {
+            return _context.Employees.FirstOrDefault(n => n.Id == id); 
+        }
 
-            return employees;
+        public IEnumerable<Employee> GetEmployees()
+        {
+            return _context.Employees;
         }
     }
 }

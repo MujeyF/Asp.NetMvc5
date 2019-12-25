@@ -38,53 +38,35 @@ namespace WebApplication.Test.Controllers
             //ViewBag.Employee = employee;
             return View("MyView",employee);
         }
-        // VM 形式
         public IActionResult GetEmployee()
         {
-            Employee emp = new Employee();
-            emp.FirstName = "Mujey";
-            emp.LastName = "Fang";
-            emp.Salary = 10000;
-
-            EmployeeViewModel viewModel = new EmployeeViewModel();
-            viewModel.FullName = emp.FirstName + emp.LastName;
-            viewModel.Salary = emp.Salary.ToString("C");
-            if (emp.Salary > 15000)
-            {
-                viewModel.SalaryColor = "yellow";
-            }
-            else
-            {
-                viewModel.SalaryColor = "gray";
-            }
-            return View("EmployeeView",viewModel);
 
         }
 
-        public IActionResult Employees()
-        {
-            List<EmployeeViewModel> vm_employees = new List<EmployeeViewModel>();
-            EmployeeRepository employeeRepository = new EmployeeRepository();
-            foreach (var i in employeeRepository.GetEmployees())
-            {
-                EmployeeViewModel vm_employee = new EmployeeViewModel();
-                vm_employee.FullName = i.FirstName +" "+ i.LastName;
-                vm_employee.Salary = i.Salary.ToString("C");
-                if (i.Salary > 15000)
-                {
-                    vm_employee.SalaryColor = "yellow";
-                }
-                else
-                {
-                    vm_employee.SalaryColor = "gray";
-                }
-                vm_employees.Add(vm_employee);
-            }
+        //public IActionResult Employees()
+        //{
+        //    List<EmployeeViewModel> vm_employees = new List<EmployeeViewModel>();
+        //    EmployeeRepository employeeRepository = new EmployeeRepository();
+        //    foreach (var i in employeeRepository.GetEmployees())
+        //    {
+        //        EmployeeViewModel vm_employee = new EmployeeViewModel();
+        //        vm_employee.FullName = i.FirstName +" "+ i.LastName;
+        //        vm_employee.Salary = i.Salary.ToString("C");
+        //        if (i.Salary > 15000)
+        //        {
+        //            vm_employee.SalaryColor = "yellow";
+        //        }
+        //        else
+        //        {
+        //            vm_employee.SalaryColor = "gray";
+        //        }
+        //        vm_employees.Add(vm_employee);
+        //    }
 
-            EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
-            employeeListViewModel.Employees = vm_employees;
+        //    EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
+        //    employeeListViewModel.Employees = vm_employees;
 
-            return View(employeeListViewModel);
-        }
+        //    return View(employeeListViewModel);
+        //}
     }
 }
