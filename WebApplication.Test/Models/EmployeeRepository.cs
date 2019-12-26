@@ -39,5 +39,12 @@ namespace WebApplication.Test.Models
             SaleERPDAL saleDAL = new SaleERPDAL();
             return saleDAL.Employees.ToList();
         }
+        public Employee SaveEmployee(Employee emp)
+        {
+            SaleERPDAL saleDAL = new SaleERPDAL();
+            saleDAL.Add<Employee>(emp);
+            saleDAL.SaveChanges();
+            return emp;
+        }
     }
 }

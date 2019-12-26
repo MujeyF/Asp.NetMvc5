@@ -39,7 +39,6 @@ namespace WebApplication.Test.Controllers
             
         //    return View(employeeList);
         //}
-
         public IActionResult Index()
         {
             List<EmployeeViewModel> vm_employees = new List<EmployeeViewModel>();
@@ -61,11 +60,28 @@ namespace WebApplication.Test.Controllers
                 }
                 vm_employees.Add(vm_employee);
             }
-
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
             employeeListViewModel.Employees = vm_employees;
 
             return View("index",employeeListViewModel);
+        }
+        public IActionResult AddNew()
+        {
+            return View("CreateEmployee");
+        }
+        public IActionResult SaveEmployee(Employee employee,string BtnSubmit)
+        {
+            switch (BtnSubmit)
+            {
+                case "Save Employee":
+                    EmployeeRepository employeeRepository = new EmployeeRepository();
+                    employeeRepository.SaveEmployee(employee);
+                    return RedirectToAction("Index");
+                    
+                case "Cancel":
+                    return RedirectToAction("Index");
+            }
+            return new EmptyResult();
         }
     }
 }
