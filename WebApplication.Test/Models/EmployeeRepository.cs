@@ -2,26 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication.Test.Service;
 
 namespace WebApplication.Test.Models
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository
     {
-        private readonly AppDbContext _context;
+        //public List<Employee> GetEmployees()
+        //{
+        //    List<Employee> employees = new List<Employee>();
+        //    Employee emp = new Employee();
+        //    emp.FirstName = "Pascal";
+        //    emp.LastName = "Howlett";
+        //    emp.Id = 1;
+        //    emp.Salary = 25000;
+        //    employees.Add(emp);
 
-        public EmployeeRepository(AppDbContext appDbContext)
-        {
-            _context = appDbContext;
-        }
+        //    Employee emp2 = new Employee();
+        //    emp2.FirstName = "Casi";
+        //    emp2.LastName = "Heibl";
+        //    emp2.Id = 2;
+        //    emp2.Salary = 26000;
+        //    employees.Add(emp2);
 
-        public Employee GetEmployeeById(int id)
-        {
-            return _context.Employees.FirstOrDefault(n => n.Id == id); 
-        }
+        //    Employee emp3 = new Employee();
+        //    emp3.FirstName = "Domingo";
+        //    emp3.LastName = "Coare";
+        //    emp3.Id = 3;
+        //    emp3.Salary = 14000;
+        //    employees.Add(emp3);
 
-        public IEnumerable<Employee> GetEmployees()
+        //    return employees;
+        //}
+        public  List<Employee> GetEmployees()
         {
-            return _context.Employees;
+            SaleERPDAL saleDAL = new SaleERPDAL();
+            return saleDAL.Employees.ToList();
         }
     }
 }

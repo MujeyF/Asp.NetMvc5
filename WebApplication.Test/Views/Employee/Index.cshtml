@@ -6,23 +6,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>GetEmployee</title>
+    <title>Employees</title>
 </head>
 <body>
-    <h2>Employees</h2>
-    <table>
+
+    <table border="1" cellpadding="5">
         <tr>
             <th>Employee Name</th>
             <th>Salary</th>
         </tr>
-        @foreach (var employee in Model.Employees)
+        @foreach (EmployeeViewModel employee in Model.Employees)
         {
             <tr>
                 <td>@employee.FullName</td>
-                <td style="background-color: @employee.SalaryColor">@employee.Salary</td>
+                <td style=" background-color: @employee.SalaryColor; color: @employee.FontColor">@employee.Salary</td>
             </tr>
         }
     </table>
 
-</body>
+    </body>
 </html>
