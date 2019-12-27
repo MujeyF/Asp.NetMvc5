@@ -1,18 +1,13 @@
-﻿
+﻿@using WebApplication.Test.ViewModels
+@model CreateEmployeeViewModel
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>CreateEmployee</title>
-    <script>
-        function ResetForm() {
-            document.getElementById("TxtFName").value = "";
-            document.getElementById("TxtLName").value = "";
-            document.getElementById("TxtSlary").value = "";
-            
-        }
-    </script>
+    <script src="~/js/Validations.js"></script>
 </head>
 <body>
     <div>
@@ -21,30 +16,30 @@
             <table>
                 <tr>
                     <td width="100px">First Name:</td>
-                    <td><input type="text" id="TxtFName" name="FirstName" value="" width="260"/></td>
-                    <td>@Html.ValidationMessage("FirstName")</td>
+                    <td><input type="text" id="TxtFName" name="FirstName" value="@Model.FirstName" width="260" /></td>
+                    @*<td>@Html.ValidationMessage("FirstName")</td>*@
                 </tr>
                 <tr>
                     <td width="100px">Last Name:</td>
-                    <td><input type="text" id="TxtLName" name="LastName" value="" width="260"/></td>
-                    <td>@Html.ValidationMessage("LastName")</td>
+                    <td><input type="text" id="TxtLName" name="LastName" value="@Model.LastName" width="260" /></td>
+                    @*<td>@Html.ValidationMessage("LastName")</td>*@
                 </tr>
                 <tr>
                     <td width="100px">Salary:</td>
-                    <td><input type="text" id="TxtSlary" name="Salary" value="" width="260"/></td>
-                    <td>@Html.ValidationMessage("Salary")</td>
+                    <td><input type="text" id="TxtSalary" name="Salary" value="@Model.Salary" width="260" /></td>
+                    <td>@*@Html.ValidationMessage("Salary")*@</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" name="BtnSubmit" value="Save Employee" />
+                        <input type="submit" name="BtnSubmit" value="Save Employee" onclick="IsValid();" />
                         <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
                         <input type="submit" name="BtnSubmit" value="Cancel" />
                     </td>
                 </tr>
             </table>
-        </form>
-            @*<form action="/Employee/SaveEmployee" method="post">
+        </form> 
+        @*<form action="/Employee/SaveEmployee" method="post">
                 First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><br />
                 Last Name: <input type="text" id="TxtLName" name="LastName" value="" /><br />
                 Salary: <input type="text" id="TxtSlary" name="Salary" value="" /><br />
@@ -54,6 +49,5 @@
                 <input type="submit" name="BtnSubmit" value="Cancel" />
             </form>*@
     </div>
-
 </body>
 </html>

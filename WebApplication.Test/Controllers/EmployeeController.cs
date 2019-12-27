@@ -7,6 +7,7 @@ using WebApplication.Test.Models;
 using WebApplication.Test.ViewModels;
 using System.Data.SqlClient;
 using WebApplication.Test.Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication.Test.Controllers
 {
@@ -40,6 +41,8 @@ namespace WebApplication.Test.Controllers
             
         //    return View(employeeList);
         //}
+
+        [Authorize]
         public IActionResult Index()
         {
             List<EmployeeViewModel> vm_employees = new List<EmployeeViewModel>();
@@ -68,7 +71,7 @@ namespace WebApplication.Test.Controllers
         }
         public IActionResult AddNew()
         {
-            return View("CreateEmployee");
+            return View("CreateEmployee",new CreateEmployeeViewModel());
         }
         public IActionResult SaveEmployee(Employee employee , string BtnSubmit)
         {
@@ -83,7 +86,18 @@ namespace WebApplication.Test.Controllers
                     }
                     else
                     {
-                        return View("CreateEmployee");
+                        var createEmployeeVM = new CreateEmployeeViewModel();
+                        createEmployeeVM.FirstName = employee.FirstName;
+                        createEmployeeVM.LastName = employee.LastName;
+                        if (!employee.Salary.Equals(null))
+                        {
+                            createEmployeeVM.Salary = employee.Salary.ToString();
+                        }
+                        else
+                        {
+                            createEmployeeVM.Salary = ModelState["Salary"].AttemptedValue;
+                        }
+                        return View("CreateEmployee", createEmployeeVM);
                     }
                 case "Cancel":
                     return RedirectToAction("Index");

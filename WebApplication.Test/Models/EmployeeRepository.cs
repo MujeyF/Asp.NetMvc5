@@ -46,5 +46,13 @@ namespace WebApplication.Test.Models
             saleDAL.SaveChanges();
             return emp;
         }
+        public bool IsValidUser(UserDetails userDetails)
+        {
+            if (userDetails.UserName == "Admin" && userDetails.Password == "Admin")
+            {
+                return true;
+            }
+            else { return false; }
+        }
     }
 }

@@ -8,6 +8,11 @@ namespace WebApplication.Test.Models
 {
     public class Employee
     {
+        //1. FirstName 不能为空
+        //2. LastName字符长度不能大于5
+        //3. Salary不能为空，且应该为数字类型
+        //4. FirstName 不能包含@字符
+
         [Key]
         public int Id { get; set; }
 

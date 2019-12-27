@@ -1,0 +1,25 @@
+﻿@model WebApplication.Test.Models.UserDetails
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("DoLogin", "Authentication", FormMethod.Post))
+        {
+            @Html.LabelFor(c => c.UserName)
+            @Html.TextBoxFor(t => t.UserName)
+            <br />
+            @Html.LabelFor(c => c.Password)
+            @Html.TextBoxFor(t => t.Password)
+            <input type="submit" name="BtnSubmit" value="Login" />
+        }
+    </div>
+
+
+</body>
+</html>
