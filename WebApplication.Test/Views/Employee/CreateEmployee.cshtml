@@ -16,15 +16,43 @@
 </head>
 <body>
     <div>
+
         <form action="/Employee/SaveEmployee" method="post">
-            First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><br />
-            Last Name: <input type="text" id="TxtLName" name="LastName" value="" /><br />
-            Salary: <input type="text" id="TxtSlary" name="Salary" value="" /><br />
-            
-            <input type="submit" name="BtnSubmit" value="Save Employee" />
-            <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
-            <input type="submit" name="BtnSubmit" value="Cancel" />
+            <table>
+                <tr>
+                    <td width="100px">First Name:</td>
+                    <td><input type="text" id="TxtFName" name="FirstName" value="" width="260"/></td>
+                    <td>@Html.ValidationMessage("FirstName")</td>
+                </tr>
+                <tr>
+                    <td width="100px">Last Name:</td>
+                    <td><input type="text" id="TxtLName" name="LastName" value="" width="260"/></td>
+                    <td>@Html.ValidationMessage("LastName")</td>
+                </tr>
+                <tr>
+                    <td width="100px">Salary:</td>
+                    <td><input type="text" id="TxtSlary" name="Salary" value="" width="260"/></td>
+                    <td>@Html.ValidationMessage("Salary")</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="BtnSubmit" value="Save Employee" />
+                        <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                        <input type="submit" name="BtnSubmit" value="Cancel" />
+                    </td>
+                </tr>
+            </table>
         </form>
+            @*<form action="/Employee/SaveEmployee" method="post">
+                First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><br />
+                Last Name: <input type="text" id="TxtLName" name="LastName" value="" /><br />
+                Salary: <input type="text" id="TxtSlary" name="Salary" value="" /><br />
+
+                <input type="submit" name="BtnSubmit" value="Save Employee" />
+                <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                <input type="submit" name="BtnSubmit" value="Cancel" />
+            </form>*@
     </div>
 
 </body>

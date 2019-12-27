@@ -10,8 +10,16 @@ namespace WebApplication.Test.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [FirstNameValidation]
+        [MaxLength(20, ErrorMessage = "Your First Name Can't More Than 20 Words.")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name can't be null.")]
+        [MaxLength(20, ErrorMessage = "Your Last Name Can't More Than 20 Words.")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Salary can't be null..")]
         public int Salary { get; set; }
     }
 }

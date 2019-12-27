@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApplication.Test.Models;
 using WebApplication.Test.ViewModels;
 using System.Data.SqlClient;
+using WebApplication.Test.Service;
 
 namespace WebApplication.Test.Controllers
 {
@@ -69,15 +70,21 @@ namespace WebApplication.Test.Controllers
         {
             return View("CreateEmployee");
         }
-        public IActionResult SaveEmployee(Employee employee,string BtnSubmit)
+        public IActionResult SaveEmployee(Employee employee , string BtnSubmit)
         {
             switch (BtnSubmit)
             {
                 case "Save Employee":
-                    EmployeeRepository employeeRepository = new EmployeeRepository();
-                    employeeRepository.SaveEmployee(employee);
-                    return RedirectToAction("Index");
-                    
+                    if(ModelState.IsValid)
+                    {
+                        var employeeRepository = new EmployeeRepository();
+                        employeeRepository.SaveEmployee(employee);
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View("CreateEmployee");
+                    }
                 case "Cancel":
                     return RedirectToAction("Index");
             }
