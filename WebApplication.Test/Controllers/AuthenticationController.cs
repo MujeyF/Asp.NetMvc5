@@ -27,6 +27,8 @@ namespace WebApplication.Test.Controllers
                 FormsAuthentication.SetAuthCookie(u.UserName, false);
                 return RedirectToAction("Index", "Employee");
             }
+
+            return RedirectToAction("Index");
         }
     }
 }
